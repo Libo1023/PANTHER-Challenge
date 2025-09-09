@@ -1,0 +1,4 @@
+nnunetv2
+SimpleITK
+numpy
+scipy
