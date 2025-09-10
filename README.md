@@ -61,8 +61,8 @@ pip install mrsegmentator  # For Task 2 only
 Required data structure:
 ```
 data/PANTHER_Task1/
-  ├── ImagesTr/  (389 .mha files)
-  └── LabelsTr/  (389 .mha files)
+  ├── ImagesTr/  (92 .mha files)
+  └── LabelsTr/  (92 .mha files)
 ```
 
 **Configuration options** in `train_task1_demo.py`:
