@@ -43,7 +43,7 @@ This repository contains our solution for the PANTHER (Pancreatic Tumor Segmenta
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone https://github.com/Libo1023/PANTHER-Challenge/tree/main
 cd panther-challenge
 
 # Install dependencies
