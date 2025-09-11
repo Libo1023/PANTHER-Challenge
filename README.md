@@ -47,7 +47,7 @@ The solution implements a two-stage segmentation pipeline with domain adaptation
 
 **Stage 2 - Tumor Segmentation**: The cropped pancreatic region undergoes tumor segmentation using a 3-fold nnUNet ensemble. This focused approach reduces computational requirements while improving segmentation accuracy by constraining the problem space.
 
-**Domain Adaptation**: To leverage the larger Task 1 dataset, the implementation incorporates domain adaptation techniques:
+**Domain Adaptation**: To leverage the larger Task 1 dataset, the implementation incorporates: 
 
 - **Histogram Matching**: Task 1 images are transformed to match the intensity distribution of Task 2 images, computed from all 50 Task 2 samples
 - **Combined Training**: A unified model is trained on the domain-adapted Task 1 data (both labeled and pseudo-labeled) combined with Task 2 training samples
