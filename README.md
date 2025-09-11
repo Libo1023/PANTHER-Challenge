@@ -1,4 +1,4 @@
-# PANTHER Challenge: Pancreatic Tumor Segmentation from MRI
+# PANTHER Challenge: Pancreatic Tumor Segmentation
 
 ## Overview
 
@@ -8,8 +8,8 @@ This repository contains the implementation for the PANTHER (Pancreatic Tumor He
 
 This repository is organized into two main directories corresponding to the challenge tasks:
 
-- **Task1/**: Contains the complete pipeline for T1-weighted MRI tumor segmentation, including Docker containerization files, inference scripts, model architectures, and comprehensive training strategies
-- **Task2/**: Houses the T2-weighted MRI segmentation solution with its two-stage approach, domain adaptation mechanisms, and evaluation utilities
+- **Task1**: Contains the complete pipeline for T1-weighted MRI tumor segmentation, including Docker containerization files, inference scripts, model architectures, and comprehensive training strategies
+- **Task2**: Houses the T2-weighted MRI segmentation solution with its two-stage approach, domain adaptation mechanisms, and evaluation utilities
 
 Each task directory includes Docker configuration files for containerized deployment, nnUNet model configurations, custom training scripts, and evaluation metrics implementation following the PANTHER challenge specifications.
 
