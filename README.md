@@ -8,8 +8,8 @@ This repository contains the implementation for the PANTHER (Pancreatic Tumor He
 
 This repository is organized into two main directories corresponding to the challenge tasks:
 
-- **Task1**: Contains the complete pipeline for T1-weighted MRI tumor segmentation, including Docker containerization files, inference scripts, model architectures, and comprehensive training strategies
-- **Task2**: Houses the T2-weighted MRI segmentation solution with its two-stage approach, domain adaptation mechanisms, and evaluation utilities
+- **Task1**: Contains the complete pipeline for T1-weighted MRI tumor segmentation, including Docker containerization files, inference scripts, model architectures, and comprehensive training strategies.
+- **Task2**: Houses the T2-weighted MRI segmentation solution with its two-stage approach, domain adaptation mechanisms, and evaluation utilities.
 
 Each task directory includes Docker configuration files for containerized deployment, nnUNet model configurations, custom training scripts, and evaluation metrics implementation. 
 
@@ -49,9 +49,9 @@ The solution implements a two-stage segmentation pipeline with domain adaptation
 
 **Domain Adaptation**: To leverage the larger Task 1 dataset, the implementation incorporates: 
 
-- **Histogram Matching**: Task 1 images are transformed to match the intensity distribution of Task 2 images, computed from all 50 Task 2 samples
-- **Combined Training**: A unified model is trained on the domain-adapted Task 1 data (both labeled and pseudo-labeled) combined with Task 2 training samples
-- **Intensity Statistics Alignment**: The adaptation process preserves spatial information while aligning intensity characteristics between the two MRI modalities
+- **Histogram Matching**: Task 1 images are transformed to match the intensity distribution of Task 2 images, computed from all 50 Task 2 samples.
+- **Combined Training**: A unified model is trained on the domain-adapted Task 1 data (both labeled and pseudo-labeled) combined with Task 2 training samples.
+- **Intensity Statistics Alignment**: The adaptation process preserves spatial information while aligning intensity characteristics between the two MRI modalities.
 
 **Final Reconstruction**: The cropped tumor predictions are mapped back to the original image space, maintaining spatial correspondence with the input T2-weighted MRI.
 
@@ -61,26 +61,26 @@ The solution implements a two-stage segmentation pipeline with domain adaptation
 
 The implementation utilizes several nnUNet variants with specific configurations:
 
-- **ResEncM**: Features [32, 64, 128, 256, 320, 320] channels across 6 stages with residual encoder blocks
-- **3D Full Resolution**: Processes patches of size 48x160x224 for Task 1 and 64x112x160 for Task 2
-- **Instance Normalization**: Applied throughout the network for training stability
-- **Deep Supervision**: Implemented during training with exponentially decreasing weights
+- **ResEncM**: Features [32, 64, 128, 256, 320, 320] channels across 6 stages with residual encoder blocks.
+- **3D Full Resolution**: Processes patches of size 48x160x224 for Task 1 and 64x112x160 for Task 2.
+- **Instance Normalization**: Applied throughout the network for training stability.
+- **Deep Supervision**: Implemented during training with exponentially decreasing weights.
 
 ### Training Optimizations
 
 The training pipeline incorporates several optimization strategies:
 
-- **Data Augmentation**: Controlled rotation augmentation limited to 20 degrees to preserve anatomical realism
-- **Mixed Precision Training**: Utilized for memory efficiency and faster training
-- **Adaptive Learning Rate**: Polynomial decay schedule with initial rates tailored to each training phase
-- **Cross-Validation**: 5-fold cross-validation for Task 1 ensures robust model selection and reduces overfitting
+- **Data Augmentation**: Controlled rotation augmentation limited to 20 degrees to preserve anatomical realism.
+- **Mixed Precision Training**: Utilized for memory efficiency and faster training.
+- **Adaptive Learning Rate**: Polynomial decay schedule with initial rates tailored to each training phase.
+- **Cross-Validation**: 5-fold cross-validation for Task 1 ensures robust model selection and reduces overfitting.
 
 ### Evaluation Metrics
 
 The implementation computes comprehensive segmentation metrics:
 
-- **Volumetric Dice Coefficient**: Measures overall segmentation overlap
-- **Surface Dice at 5mm**: Evaluates boundary accuracy with 5mm tolerance
-- **95th Percentile Hausdorff Distance**: Assesses worst-case boundary errors
-- **Mean Average Surface Distance**: Quantifies average boundary deviation
-- **Tumor Burden RMSE**: Evaluates volumetric estimation accuracy
+- **Volumetric Dice Coefficient**: Measures overall segmentation overlap.
+- **Surface Dice at 5mm**: Evaluates boundary accuracy with 5mm tolerance.
+- **95th Percentile Hausdorff Distance**: Assesses worst-case boundary errors.
+- **Mean Average Surface Distance**: Quantifies average boundary deviation.
+- **Tumor Burden RMSE**: Evaluates volumetric estimation accuracy.
