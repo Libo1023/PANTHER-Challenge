@@ -11,7 +11,7 @@ This repository is organized into two main directories corresponding to the chal
 - **Task1**: Contains the complete pipeline for T1-weighted MRI tumor segmentation, including Docker containerization files, inference scripts, model architectures, and comprehensive training strategies
 - **Task2**: Houses the T2-weighted MRI segmentation solution with its two-stage approach, domain adaptation mechanisms, and evaluation utilities
 
-Each task directory includes Docker configuration files for containerized deployment, nnUNet model configurations, custom training scripts, and evaluation metrics implementation following the PANTHER challenge specifications.
+Each task directory includes Docker configuration files for containerized deployment, nnUNet model configurations, custom training scripts, and evaluation metrics implementation. 
 
 ## Task 1: T1-weighted MRI Tumor Segmentation
 
