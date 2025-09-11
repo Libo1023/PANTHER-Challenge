@@ -23,7 +23,7 @@ The solution implements a multi-stage training pipeline with progressive refinem
 
 **Architecture**: The core architecture employs ResEncM (Residual Encoder Medium), a memory-efficient variant of the nnUNet framework. This architecture features residual connections in the encoder path, providing improved gradient flow while maintaining computational efficiency with approximately 9GB VRAM usage.
 
-**Training Strategy**: The implementation follows a noisy student training paradigm with multiple rounds of pseudo-labeling:
+**Training**: The implementation follows a noisy student training paradigm with multiple rounds of pseudo-labeling:
 
 1. **Initial Teacher Training**: A 5-fold cross-validation ensemble is trained on the 91 labeled cases using the ResEncM architecture. Each fold trains for 300 epochs with a learning rate of 0.005, employing both cross-entropy and Dice loss with weights of 1.0 and 1.5 respectively.
 
