@@ -37,7 +37,7 @@ The solution implements a multi-stage training pipeline with progressive refinem
 
 ## Task 2: T2-weighted MRI Tumor Segmentation
 
-Task 2 focuses on pancreatic tumor segmentation from T2-weighted MRI scans, with a limited dataset of 50 labeled cases. This task presents unique challenges due to the different image characteristics and smaller dataset size.
+Task 2 focuses on pancreatic tumor segmentation from T2-weighted MRI scans, with a limited dataset of 50 labeled cases. This task is challenging due to the different image characteristics and smaller dataset size.
 
 ### Approach and Methodology
 
