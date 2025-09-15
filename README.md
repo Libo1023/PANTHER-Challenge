@@ -1,16 +1,16 @@
 # PANTHER Challenge: Pancreatic Tumor Segmentation
 
-This repository contains our solution for the PANTHER (Pancreatic Tumor) segmentation challenge, addressing both Task 1 (T1-weighted MRI) and Task 2 (T2-weighted MRI) pancreatic tumor segmentation.
+This repository contains my algorithms for the PANTHER Challenge, addressing both Task 1 (T1-weighted MRI) and Task 2 (T2-weighted MRI) pancreatic tumor segmentation.
 
 ## Overview
 
-The PANTHER challenge focuses on automated segmentation of pancreatic tumors from abdominal MRI scans. Our solution leverages nnU-Net with several advanced techniques including:
+The PANTHER Challenge focuses on automated segmentation of pancreatic tumors from abdominal MRI scans. My algorithms leverage nnU-Net with several advanced techniques including:  
 
+- **Pseudo-labeling** to leverage unlabeled data
 - **5-fold ensemble inference** for robust predictions
 - **Noisy student training** for semi-supervised learning
-- **Pseudo-labeling** to leverage unlabeled data
-- **Domain adaptation** for cross-modality transfer
 - **ResEnc (Residual Encoder) U-Net architecture** variants
+- **Pre-training and fine-tuning paradigm** for effective adaption from Task 1 to Task 2
 
 ## Repository Structure
 
