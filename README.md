@@ -47,7 +47,7 @@ The algorithms leverage nnU-Net with several advanced techniques including:
    - 300 epochs with initial LR of 0.005
    
 2. **Round 1 - First Student Generation:**
-   - Teachers generate pseudo-labels for 389 unlabeled samples
+   - Teachers generate pseudo-labels for 367 unlabeled samples
    - Filter out background-only predictions
    - Train 5-fold student models on combined labeled + pseudo-labeled data (800 epochs)
 
@@ -78,7 +78,7 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 ## Key Features
 
 ### Semi-Supervised Learning
-- **Pseudo-labeling:** Leverages 389 unlabeled samples in Task 1
+- **Pseudo-labeling:** Leverages 367 unlabeled samples in Task 1
 - **Noisy Student Training:** Iterative refinement through teacher-student paradigm
 - **Background Filtering:** Excludes pseudo-labels with no foreground to maintain quality
 
