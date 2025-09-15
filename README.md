@@ -1,6 +1,6 @@
 # PANTHER Challenge: Pancreatic Tumor Segmentation
 
-This repository contains my algorithms for the PANTHER Challenge, addressing both Task 1 (T1-weighted MRI) and Task 2 (T2-weighted MRI) pancreatic tumor segmentation.
+This repository contains my algorithms for the PANTHER Challenge, tackling both tasks. 
 
 ## Overview
 
