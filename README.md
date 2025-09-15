@@ -43,7 +43,7 @@ My algorithms leverage nnU-Net with several advanced techniques including:
 
 **Training Strategy - Two-Round Noisy Student Training:**
 1. **Round 0 - Teacher Training:** 
-   - Train 5-fold ResEnc-M models on 91 labeled samples
+   - Train 5-fold ResEnc-M models on 92 labeled samples
    - 300 epochs with initial LR of 0.005
    
 2. **Round 1 - First Student Generation:**
