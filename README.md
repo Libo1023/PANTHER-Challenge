@@ -10,7 +10,7 @@ The PANTHER Challenge focuses on automated segmentation of pancreatic tumors fro
 - **5-fold ensemble inference** for robust predictions
 - **Noisy student training** for semi-supervised learning
 - **ResEnc (Residual Encoder) U-Net architecture** variants
-- **Pre-training and fine-tuning** for effective adaption from Task 1 to Task 2
+- **Pre-training and fine-tuning** for effective transfer between two tasks. 
 
 ## Repository Structure
 
