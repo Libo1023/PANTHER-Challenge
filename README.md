@@ -16,30 +16,32 @@ The PANTHER Challenge focuses on automated segmentation of pancreatic tumors fro
 
 ```
 .
-├── Task1/                     # T1-weighted MRI tumor segmentation
+├── Task1/                     # Pancreatic tumor segmentation in diagnostic MRIs
 │   ├── Dockerfile             # Container definition for Task 1
 │   ├── inference.py           # 5-fold ensemble inference pipeline
 │   ├── custom_trainers/       # Custom nnU-Net trainer implementations
 │   ├── nnUNet_results/        # Model configurations and plans
 │   ├── training/              # Training scripts and utilities
-│   │   ├── google-colab_5-fold_pretraining.py    # Round 0: 5-fold teacher model training
-│   │   ├── r1_pseudo_panther/                    # Round 1: 5-fold teacher model pseudo-labeling
-│   │   ├── r1_students_panther/                  # Round 1: 5-fold noisy student model training
-│   │   ├── r2_pseudo_panther/                    # Round 2: 5-fold student model pseudo-labeling
-│   │   └── r2_students_panther/                  # Round 2: Enhanced 5-fold noisy student model training
+│   │   ├── colab_training.py       # Round 0: 5-fold teacher model training
+│   │   ├── r1_pseudo_panther/      # Round 1: 5-fold teacher model pseudo-labeling
+│   │   ├── r1_students_panther/    # Round 1: 5-fold noisy student model training
+│   │   ├── r2_pseudo_panther/      # Round 2: 5-fold student model pseudo-labeling
+│   │   └── r2_students_panther/    # Round 2: Enhanced 5-fold noisy student model training
 │   └── model/                 # Checkpoint storage directory
 │
-└── Task2/                     # T2-weighted MRI tumor segmentation
-    ├── Dockerfile             # Container definition for Task 2
-    ├── inference.py           # Cropped inference with MRSegmentator
-    ├── data_utils.py          # Image preprocessing utilities
-    ├── nnUNet_results/        # Model configurations
-    └── training/              # Training scripts with domain adaptation
+└── Task2/                     # Pancreatic tumor segmentation MR-Linac MRIs
+│   ├── Dockerfile             # Container definition for Task 2
+│   ├── inference.py           # Cropped inference with MRSegmentator
+│   ├── data_utils.py          # Image preprocessing utilities
+│   ├── nnUNet_results/        # Model configurations
+│   └── training/              # Training scripts and utilities
+│   │   ├── train.py           # 3-fold ResEncM fine-tuning
+│   └── model/                 # Checkpoint storage directory
 ```
 
 ## Solution Approach
 
-### Task 1: T1-weighted MRI Segmentation
+### Task 1: Pancreatic Tumor Segmentation in Diagnostic MRIs
 
 Our Task 1 solution implements a multi-stage approach:
 
@@ -55,7 +57,7 @@ Our Task 1 solution implements a multi-stage approach:
    - Background-only predictions filtered out
    - 1600 epochs for student training with learning rate 0.003
 
-### Task 2: T2-weighted MRI Segmentation
+### Task 2: Pancreatic Tumor Segmentation MR-Linac MRIs
 
 The Task 2 solution incorporates:
 
