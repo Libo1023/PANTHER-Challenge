@@ -39,7 +39,7 @@ My algorithms leverage nnU-Net with several advanced techniques including:
 ## Methodology
 
 ### Task 1: Diagnostic MRI Segmentation
-**Architecture:** ResEnc-M (Residual Encoder U-Net Medium variant) with 3-class output (background, tumor, pancreas)
+**Architecture:** ResEnc-M (Residual Encoder U-Net Medium variant) with 3-class output (background as label 0, tumor as label 1, and pancreas as label 2)
 
 **Training Strategy - Two-Round Noisy Student Training:**
 1. **Round 0 - Teacher Training:** 
