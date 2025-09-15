@@ -16,19 +16,20 @@ The PANTHER Challenge focuses on automated segmentation of pancreatic tumors fro
 
 ```
 .
-├── Task1/                      # T1-weighted MRI tumor segmentation
+├── Task1/                     # T1-weighted MRI tumor segmentation
 │   ├── Dockerfile             # Container definition for Task 1
 │   ├── inference.py           # 5-fold ensemble inference pipeline
 │   ├── custom_trainers/       # Custom nnU-Net trainer implementations
 │   ├── nnUNet_results/        # Model configurations and plans
 │   ├── training/              # Training scripts and utilities
-│   │   ├── r1_pseudo_panther/    # Round 1: Teacher model training
-│   │   ├── r1_students_panther/  # Round 1: Student model training
-│   │   ├── r2_pseudo_panther/    # Round 2: Pseudo-label generation
-│   │   └── r2_students_panther/  # Round 2: Enhanced student training
+│   │   ├── google-colab_5-fold_pretraining.py    # Round 0: 5-fold teacher model training
+│   │   ├── r1_pseudo_panther/                    # Round 1: 5-fold teacher model pseudo-labeling
+│   │   ├── r1_students_panther/                  # Round 1: 5-fold noisy student model training
+│   │   ├── r2_pseudo_panther/                    # Round 2: 5-fold student model pseudo-labeling
+│   │   └── r2_students_panther/                  # Round 2: Enhanced 5-fold noisy student model training
 │   └── model/                 # Checkpoint storage directory
 │
-└── Task2/                      # T2-weighted MRI tumor segmentation
+└── Task2/                     # T2-weighted MRI tumor segmentation
     ├── Dockerfile             # Container definition for Task 2
     ├── inference.py           # Cropped inference with MRSegmentator
     ├── data_utils.py          # Image preprocessing utilities
