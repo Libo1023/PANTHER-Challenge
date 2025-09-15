@@ -4,7 +4,8 @@ This repository contains my algorithms for the PANTHER Challenge, addressing bot
 
 ## Overview
 
-The PANTHER Challenge focuses on automated segmentation of pancreatic tumors from abdominal MRI scans. My algorithms leverage nnU-Net with several advanced techniques including:  
+The PANTHER Challenge focuses on automated segmentation of pancreatic tumors from abdominal MRI scans.  
+My algorithms leverage nnU-Net with several advanced techniques including:  
 
 - **Pseudo-labeling** to leverage unlabeled data
 - **5-fold ensemble inference** for robust predictions
