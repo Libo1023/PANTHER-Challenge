@@ -105,7 +105,7 @@ My algorithms leverage nnU-Net with several advanced techniques including:
 - 24GB VRAM for ResEnc-L variant (optional)
 - 40GB VRAM for ResEnc-XL variant (optional)
 
-Note: During my experiments, I did not observe a significant performance boost by replacing ResEncM with the L or XL variant for neither task. My interpretation is that the dataset size is relatively small so larger models tend to be underfit. 
+Note: I did not observe explicit performance boost by replacing ResEncM with the L or XL variant for neither task. My interpretation is that the dataset size is relatively small so larger models tend to be underfit. 
 
 ## Usage
 
