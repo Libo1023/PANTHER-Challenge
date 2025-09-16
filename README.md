@@ -66,7 +66,7 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 **Training**
 - 3-fold cross-validation on 50 labeled MR-Linac samples
 - Fine-tune from one of 5-fold Task 1 checkpoints (500 epochs, LR 0.001)
-- Maintain 3-class segmentation formulation for consistency with Task 1 pre-training, despite binary evaluation
+- Maintain 3-class formulation for consistency with Task 1 pre-training, despite binary evaluation
 
 **Inference**
 
