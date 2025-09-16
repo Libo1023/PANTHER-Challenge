@@ -63,12 +63,12 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 ### Task 2: MR-Linac MRI Segmentation
 **Architecture:** ResEnc-M fine-tuned from Task 1 models
 
-**Training Strategy:**
+**Training**
 - 3-fold cross-validation on 50 labeled MR-Linac samples
 - Fine-tune from one of 5-fold Task 1 checkpoints (500 epochs, LR 0.001)
 - Maintain 3-class segmentation formulation for harder per-fold training
 
-**Inference Pipeline**
+**Inference**
 
 1. **Input Processing**: 
    - Load original high-resolution T2-weighted MRI
