@@ -1,5 +1,5 @@
 # PANTHER Challenge: Pancreatic Tumor Segmentation
-This repository contains algorithm solutions for the PANTHER Challenge, tackling both tasks. 
+This repository contains algorithmic solutions for the PANTHER Challenge, tackling both tasks. 
 
 ## Overview
 The PANTHER Challenge focuses on automated segmentation of pancreatic tumors from abdominal MRI scans.  
