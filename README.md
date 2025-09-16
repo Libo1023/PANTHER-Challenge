@@ -70,7 +70,6 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 
 **Inference Pipeline**
 
-### Stage 1: Pancreas Localization (MRSegmentator)
 1. **Input Processing**: 
    - Load original high-resolution T2-weighted MRI
    - Create low-resolution copy with 3.0×3.0×6.0 mm spacing for computational efficiency
@@ -85,7 +84,6 @@ The algorithms leverage nnU-Net with several advanced techniques including:
    - Add 30mm safety margins in all directions to ensure complete tumor coverage
    - Transform coordinates back to original image space
 
-### Stage 2: Tumor Segmentation (nnU-Net)
 4. **Focused Processing**: 
    - Crop the **original high-resolution MRI** using the computed ROI (preserving original resolution)
    - This reduces the input volume by ~70-80%, enabling efficient processing
