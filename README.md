@@ -53,27 +53,51 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 
 3. **Round 2 - Enhanced Student Generation:**
    - Round 1 students generate improved pseudo-labels
+   - Filter out background-only predictions (fewer than Round 1)
    - Train final 5-fold student models with 1600 epochs and LR of 0.003
    
 **Inference:** 
-- 5-fold ensemble with softmax averaging
+- 5-fold ensemble with softmax probability averaging
 - Multi-class predictions (3 classes) with binary tumor extraction
-- Per-fold inference followed by probability averaging
 
 ### Task 2: MR-Linac MRI Segmentation
 **Architecture:** ResEnc-M fine-tuned from Task 1 models
 
 **Training Strategy:**
 - 3-fold cross-validation on 50 labeled MR-Linac samples
-- Fine-tune from Task 1 checkpoint (500 epochs, LR 0.001)
-- Maintain 3-class segmentation framework
+- Fine-tune from one of 5-fold Task 1 checkpoints (500 epochs, LR 0.001)
+- Maintain 3-class segmentation formulation for harder per-fold training
 
-**Inference Pipeline:**
-1. Resample input to low resolution (3.0, 3.0, 6.0 mm)
-2. Apply MRSegmentator to detect pancreas region
-3. Crop original image to pancreas ROI with 30mm margins
-4. Run 3-fold ensemble nnU-Net inference on cropped region
-5. Restore predictions to original image dimensions
+**Inference Pipeline**
+
+### Stage 1: Pancreas Localization (MRSegmentator)
+1. **Input Processing**: 
+   - Load original high-resolution T2-weighted MRI
+   - Create low-resolution copy with 3.0×3.0×6.0 mm spacing for computational efficiency
+
+2. **Organ Detection**: 
+   - Apply MRSegmentator with **5-fold ensemble** (folds 0-4) on the low-resolution image
+   - Extract pancreas segmentation mask (organ class #7 in MRSegmentator output)
+   - Binary conversion: pancreas=1, everything else=0
+
+3. **ROI Definition**: 
+   - Compute 3D bounding box around the detected pancreas region
+   - Add 30mm safety margins in all directions to ensure complete tumor coverage
+   - Transform coordinates back to original image space
+
+### Stage 2: Tumor Segmentation (nnU-Net)
+4. **Focused Processing**: 
+   - Crop the **original high-resolution MRI** using the computed ROI (preserving original resolution)
+   - This reduces the input volume by ~70-80%, enabling efficient processing
+
+5. **Tumor Detection**: 
+   - Run nnU-Net **3-fold ensemble** (folds 0, 1, 2) on the cropped high-resolution region
+   - Model trained specifically for pancreatic tumor segmentation in T2-weighted MR images
+
+6. **Full Resolution Reconstruction**: 
+   - Map the predicted tumor mask from cropped space back to original image dimensions
+   - Place predictions at the correct anatomical location using saved crop coordinates
+   - Output final binary mask (0=background, 1=tumor) at original resolution
 
 ## Key Features
 
@@ -86,10 +110,6 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 - **Task 1:** 5-fold cross-validation ensemble
 - **Task 2:** 3-fold cross-validation ensemble
 - **Softmax Averaging:** Probabilistic combination of fold predictions
-
-### Domain Adaptation
-- **Transfer Learning:** Task 2 models initialized from Task 1 weights
-- **ROI-based Processing:** MRSegmentator-guided cropping for focused segmentation
 
 ## Requirements
 
@@ -129,8 +149,8 @@ cd Task2
 
 #### Task 1 Training
 ```python
-# Round 0: Initial teacher training
-python training/colab_training.py
+# Round 0: Initial teacher training (implemented on Google CoLab)
+# Refer to ./Task1/training/colab_training.py
 
 # Round 1: Generate pseudo-labels and train students
 python training/r1_pseudo_panther/generate_teacher_predictions.py
