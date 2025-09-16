@@ -86,11 +86,9 @@ The algorithms leverage nnU-Net with several advanced techniques including:
 
 4. **Focused Processing**: 
    - Crop the **original high-resolution MRI** using the computed ROI (preserving original resolution)
-   - This reduces the input volume by ~70-80%, enabling efficient processing
 
 5. **Tumor Detection**: 
    - Run nnU-Net **3-fold ensemble** (folds 0, 1, 2) on the cropped high-resolution region
-   - Model trained specifically for pancreatic tumor segmentation in T2-weighted MR images
 
 6. **Full Resolution Reconstruction**: 
    - Map the predicted tumor mask from cropped space back to original image dimensions
