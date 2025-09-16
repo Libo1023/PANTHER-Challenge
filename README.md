@@ -151,20 +151,20 @@ cd Task2
 # Refer to ./Task1/training/colab_training.py
 
 # Round 1: Generate pseudo-labels and train students
-python training/r1_pseudo_panther/generate_teacher_predictions.py
-python training/r1_students_panther/train_students.py
+python ./Task1/training/r1_pseudo_panther/generate_teacher_predictions.py
+python ./Task1/training/r1_students_panther/train_students.py
 
 # Round 2: Refined pseudo-labels and final students
-python training/r2_pseudo_panther/generate_prediction.py
-python training/r2_students_panther/train.py --fold 0  # Repeat for folds 0-4
+python ./Task1/training/r2_pseudo_panther/generate_prediction.py
+python ./Task1/training/r2_students_panther/train.py --fold 0  # Repeat for folds 0-4
 ```
 
 #### Task 2 Training
 ```python
 # Fine-tune from Task 1 (3 folds)
-python training/train.py --fold 0 --task1_checkpoint path/to/checkpoint.pth
-python training/train.py --fold 1 --task1_checkpoint path/to/checkpoint.pth
-python training/train.py --fold 2 --task1_checkpoint path/to/checkpoint.pth
+python ./Task2/training/train.py --fold 0 --task1_checkpoint path/to/checkpoint.pth
+python ./Task2/training/train.py --fold 1 --task1_checkpoint path/to/checkpoint.pth
+python ./Task2/training/train.py --fold 2 --task1_checkpoint path/to/checkpoint.pth
 ```
 
 ### Evaluation
@@ -178,10 +178,10 @@ Both tasks include evaluation scripts that compute:
 
 ```python
 # Example evaluation
-python training/evaluate_local_fixed.py \
-    --pred_dir predictions/ \
-    --gt_dir ground_truth/ \
-    --verbose
+python ./Task2/training/evaluate_local_fixed.py \
+        --pred_dir predictions/ \
+        --gt_dir ground_truth/ \
+        --verbose
 ```
 
 ## Model Configurations
