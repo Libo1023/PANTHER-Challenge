@@ -199,4 +199,4 @@ python ./Task2/training/evaluate_local_fixed.py \
 | Epochs | 300 | 800-1600 | 500 |
 | Initial LR | 0.005 | 0.003-0.005 | 0.001 |
 | Optimizer | SGD with momentum | SGD with momentum | SGD with momentum |
-| Loss | CE + Dice (1:1.5) | CE + Dice | CE + Dice |
+| Objectives | CE + Dice (1:1.5) | CE + Dice | CE + Dice |
